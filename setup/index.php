@@ -58,7 +58,9 @@
 									$db->query("UPDATE `users` SET `login`= '".$login."', `pass`='".$pass."' WHERE `id` = 1");
 								}
 								echo "<p class='alert alert-green'>Всё готово.</p>";
-								unlink($_SERVER["DOCUMENT_ROOT"]."/setup/*");
+								mkdir($_SERVER["DOCUMENT_ROOT"]."/userfiles");
+								unlink($_SERVER["DOCUMENT_ROOT"]."/setup/index.php");
+								unlink($_SERVER["DOCUMENT_ROOT"]."/setup/lighttracker.sql");
 								header("Location: /");
 							} else {
 								echo "<p class='alert alert-red'>Ошибка создания БД. ".$db->error."</p>";
