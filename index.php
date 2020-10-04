@@ -8,11 +8,15 @@
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, user-scalable=0"/>
 		<script type="text/javascript" src="/res/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/res/js/main.js"></script>
+		<script type="text/javascript" src="/res/js/main.js?v=6"></script>
 		<link rel="stylesheet" href="/res/css/style.css" media="screen"/>
 		<title><?=SITENAME?></title>
 	</head>
 	<body>
+		<div id="topmenu">
+			<span><?=SITENAME?></span>
+			<span class="hamburger" onclick="$('#menu').toggle();$(this).toggleClass('active');"><div></div><div></div><div></div></span>
+		</div>
 		<div id="loader-progress"></div>
 		<?php
 		include("inc/menu.php");

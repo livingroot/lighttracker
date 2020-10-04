@@ -17,7 +17,7 @@ $ticket = $getticket->fetch_array(MYSQLI_ASSOC);
 		<h2>Тикет #".$ticketid."</h2>
 		<h3>".htmlspecialchars($ticket['title'])."</h3>
 		<p>".htmlspecialchars($ticket['body'])."</p>";
-	if($ustatus == 2){
+	if($ustatus == 2 && $ticket['privatemsg'] != ""){
 		echo "<h4>Приватное сообщение:</h4><p>".$ticket['privatemsg']."</p>";
 	}
 	if($ticket['files'] != ""){
@@ -67,7 +67,7 @@ $ticket = $getticket->fetch_array(MYSQLI_ASSOC);
 	<form class="container" type="GET" onsubmit="return submitform(this,event,addcomment);" action="/controller/tickets.php">
 		<h3>Изменить статус</h3>
 		<input type="hidden" name="ticket" value="<?=$ticketid?>"/>
-		<textarea required style="width:95%;" placeholder="комментарий" name="comment"></textarea>
+		<textarea required style="width:99%;" placeholder="комментарий" name="comment"></textarea>
 		<div>
 			<select name="newstatus" id="status-select" style="display:inline-block;">
 				<option value="" disabled selected>Новый статус</option>

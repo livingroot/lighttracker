@@ -36,6 +36,10 @@ function navgo(e){
 	var href = e.attributes.href.value;
 	loadpage("/view"+href);
 	window.history.pushState("", "", href);
+	if($("body").width() <= 480){
+		$("#menu").hide();
+		$("#topmenu > .hamburger").toggleClass("active",false);
+	}
 	return false;
 }
 function collectform(form){
@@ -61,18 +65,17 @@ function updtickets(e,page){
 	var data = collectform(e);
 	data.append("page", page);
 	loadpage("/view/tickets.php","GET",new URLSearchParams(data).toString(),".main-block");
-	//window.history.pushState("", "", href+"?"+data);
 	return false;
 }
 function submitform(e,evnt,callback){
+	evnt.preventDefault();
 	var url = "";
 	var form = $(e);
 	var data = collectform(form);
 	if(form.attr("action") != undefined){
 		url = form.attr("action");
 	}
-	if(typeof evnt.submitter.name != "undefined"){
-		//data += "&"+evnt.submitter.name;
+	if(typeof evnt.submitter != "undefined"){
 		data.append(evnt.submitter.name, "");
 	}
 	$.ajax({

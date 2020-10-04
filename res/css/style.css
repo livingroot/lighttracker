@@ -22,7 +22,7 @@ body{
 }
 #auth button{
 	margin-top:16px;
-	width: 338px;
+	width: 100%;
 }
 #auth input:nth-of-type(1){
 	border-radius: 4px 4px 0px 0px;
@@ -46,6 +46,12 @@ input {
 	margin: 8px;
 	display: block;
 	background: white;
+	box-sizing: border-box;
+}
+input[type=color]{
+	min-height: 39px;
+	width: 60px;
+	padding: 4px;
 }
 textarea:focus,
 select:focus,
@@ -95,7 +101,7 @@ input[type=checkbox]{
 }
 #content{
 	margin-left: 380px;
-	padding-top: 50px;
+	padding-top: 70px;
 }
 .menu-links a:hover{
 	background-color:#5183c1;
@@ -119,15 +125,19 @@ input[type=checkbox]{
 	background-color: white;
 	margin-bottom: 8px;
 	overflow-wrap: break-word;
+	overflow-x: auto;
 }
 .col{
 	display: inline-block;
 	vertical-align: top;
 	margin: auto 1%;
 	float:left;
+	box-sizing: border-box;
 }
 .main-block{
-	width: 45%;
+	width: 48%;
+	margin-bottom: 2%;
+	/*min-width: fit-content;*/
 }
 .sidebar{
 	width: 25%;
@@ -215,9 +225,10 @@ a{
 .doubleside > div{
 	vertical-align: top;
 	display: inline-block;
-	width: 45%;
+	width: 50%;
 	float: left;
 	padding: 8px;
+	box-sizing: border-box;
 }
 .doubleside select,
 .doubleside textarea,
@@ -347,4 +358,69 @@ a{
 }
 .for-deletion button{
 	background: #485b73 !important;
+}
+#topmenu{
+	width: 100%;
+	padding: 12px;
+	background: #485b73;
+	position: fixed;
+	top: 0px;
+	display: none;
+	box-shadow: 0 0 7px #a7a7a7;
+	color: white;
+	box-sizing: border-box;
+}
+#topmenu > .hamburger{ float: right; }
+#topmenu > span{ vertical-align: sub; }
+.hamburger{
+	display: inline-block;
+	vertical-align: middle;
+	height: 25px;
+}
+.hamburger.active > div:nth-of-type(3) {
+	transform: rotate(-45deg) translate(-2px, -3px);
+}
+.hamburger.active > div:nth-of-type(1) {
+	transform: rotate(45deg) translate(2px, 7px);
+}
+.hamburger.active > div:nth-of-type(2) {
+    display: none;
+}
+.hamburger > div{
+	width: 22px;
+	height: 3px;
+	background: white;
+	display: block;
+	margin: 4px;
+	border-radius: 6px;
+	transition:0.2s ease;
+}
+@media only screen and (max-width: 768px) {
+	.col{
+		width: 95% !important;
+	}
+	#content{
+		margin-left: 220px !important;
+	}
+}
+@media only screen and (max-width: 480px) {
+	#menu{
+		display: none;
+	}
+	#content{
+		margin-left: 3% !important;
+	}
+	#topmenu{
+		display:block;
+	}
+	.doubleside > div{
+		width: 100%;
+		border: none !important;
+	}
+	.bigtable th, .bigtable td{
+		display: inline-table;
+	}
+	#auth{
+		width: 90%;
+	}
 }
