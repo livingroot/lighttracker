@@ -1,6 +1,8 @@
 <?php
 include_once("config.php");
-
+if(FIRSTRUN){
+	die(header("Location: /setup"));
+}
 session_start();
 $db = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_BASE);
 if ($db->connect_error) {

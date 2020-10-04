@@ -24,7 +24,7 @@ $ticket = $getticket->fetch_array(MYSQLI_ASSOC);
 		echo "<div class='images'>";
 		$filenames = json_decode($ticket['files']);
 		foreach ($filenames as $file) {
-			echo "<img src='/userfiles/img/".$file."' class='pic' onclick=\"modalimg(this);\"/>";
+			echo "<img src='/userfiles/".$file."' class='pic' onclick=\"modalimg(this);\"/>";
 		}
 		echo "</div>";
 	}

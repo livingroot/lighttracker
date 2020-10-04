@@ -256,6 +256,11 @@ a{
 	font-size: 19px;
 	margin: 8px 0px;
 }
+.ticket .tid{
+	font-size: 14px;
+	color: #8490a0;
+	margin-left: 4px;
+}
 .ticket > .tstatus{
 	color: #485b73;
 }

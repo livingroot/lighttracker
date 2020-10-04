@@ -34,9 +34,9 @@ if(isset($_GET["category"])){
 	}
 	if(isset($_GET['sortdate'])){
 		if($_GET['sortdate'] == "older"){
-			$filters .= " ORDER BY `createtime` DESC";
-		} else if($_GET['sortdate'] == "newer"){
 			$filters .= " ORDER BY `createtime` ASC";
+		} else if($_GET['sortdate'] == "newer"){
+			$filters .= " ORDER BY `createtime` DESC";
 		}
 	} else {
 		$filters .=" ORDER BY `status` ASC, `createtime` DESC";
@@ -52,7 +52,7 @@ if(isset($_GET["category"])){
 			<a href=\"/ticket.php?id=".$row['id']."\" onclick=\"return navgo(this);\">
 				<div class=\"ticket\">
 					".$category."
-					<div class=\"ttitle\">".htmlspecialchars($row['title'])."</div>
+					<div class=\"ttitle\">".htmlspecialchars($row['title'])."<span class=\"tid\">#".$row['id']."</span></div>
 					".$status."
 					<span class=\"ttime\">".htmlspecialchars($row['usrname'])." - ".when($row['createtime'])."</span>
 				</div>

@@ -35,10 +35,10 @@ else if(isset($_POST['newticket']) && isset($_POST['text']) && isset($_POST['sub
 	foreach ($_FILES['files']['tmp_name'] as $k => $f) {
 		if(substr($_FILES['files']['type'][$k],0,6) == "image/" && $_FILES['files']['error'][$k] == 0){
 			$filename = $uid.$k.time().".png";
-			$move = move_uploaded_file($f, $_SERVER['DOCUMENT_ROOT']."/userfiles/img/".$filename);
+			$move = move_uploaded_file($f, $_SERVER['DOCUMENT_ROOT']."/userfiles\/".$filename);
 			array_push($files_list,$filename);
 			if(!$move){
-			 	die("{\"message\":\"Не удалось сохранить файлы. Нет доступа к папке /userfiles/img/ ?\"}");
+			 	die("{\"message\":\"Не удалось сохранить файлы. Нет доступа к папке /userfiles ?\"}");
 			}
 		}
 	}

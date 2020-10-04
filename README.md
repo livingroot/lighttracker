@@ -20,5 +20,6 @@
 1. Импортировать в БД дамп [/setup/lighttracker.sql](/setup/lighttracker.sql)
 2. В файле конфигурации задать нужные параметры [/inc/config.php](/inc/config.php)
 3. Удалить папку /setup
+4. Убедиться, что в каталоге /userfiles/ есть права на запись
 
 Аккаунт по-умолчанию: **admin:admin**
